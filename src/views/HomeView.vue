@@ -1,87 +1,56 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-  </div>
+  <body>
+    <div class="home">
+     <h1><span id="factOne"></span></h1>
+     <h1><span id="factTwo"></span></h1>
+      <h1 id="lie"></h1>
+      <!-- <button v-on:click="getFacts()">Click Me</button> -->
+    </div>
+  </body>
 </template>
 
 <script>
-
 import axios from 'axios';
 
-// var limit = 1;
-
-// axios.get('https://api.api-ninjas.com/v1/facts?limit=' + limit,).then(response => {console.log(response.data);
-// })
-// .catch(error => console.error(error));
-
-// mounted(); {
-//   this.getFacts();
-// };
-
-// methods:{
-//   getFacts() {
-//    axios.get(`https://api.api-ninjas.com/v1/facts?limit=2`,
-//     {headers: key: "Mmp58EM5mhRBF+5Bh75fcA==VIfI25pl51Ng9oYh"
-//     }).then(response => {
-//       console.log (response);
-//     };
-//   }
-
-
-
-
-
-
-
-  //  ({
-  //   method: "GET",
-  //   url: "https://api.api-ninjas.com/v1/facts?limit=2",
-  //   headers:{
-  //     key: "Mmp58EM5mhRBF+5Bh75fcA==VIfI25pl51Ng9oYh"}
-  //     ).then (response => {
-  //     console.log (response);
-  //   };
-  //   });
-  // }
-
-
-// Vue.ajax({
-//     method: 'GET',
-    // url: 'https://api.api-ninjas.com/v1/facts?limit=' + limit,
-//     headers: { 'X-Api-Key': 'YOUR_API_KEY'},
-//     contentType: 'application/json',
-//     success: function(result) {
-//         console.log(result);
-//     },
-//     error: function ajaxError(jqXHR) {
-//         console.error('Error: ', jqXHR.responseText);
-//     }
-// });
+  // document.getElementById('factOne').innerHTML = factOne;
+  // document.getElementById('factTwo').innerHTML = factTwo;
 
 export default {
 
+  data() {
+    return {
+      factOne: "",
+      factTwo: "",
+    }
+  },
+
   mounted() {
-    axios.get('https://api.api-ninjas.com/v1/facts?limit=2', {
+
+    getFacts();
+
+    },
+  }
+
+  function getFacts() {
+       axios.get('https://api.api-ninjas.com/v1/facts?limit=2', {
       headers: {'X-Api-Key': 'Mmp58EM5mhRBF+5Bh75fcA==VIfI25pl51Ng9oYh'}
     })
     .then((response) => {
-      console.log(response)
+      let result = response.data;
+      let factOne = JSON.stringify(result[0])
+      let factTwo = JSON.stringify(result[1])
+
+      factOne = factOne.substring(9, factOne.length-2);
+      factTwo = factTwo.substring(9, factTwo.length-2);
+      
+      document.getElementById('factOne').innerHTML = factOne;
+      document.getElementById('factTwo').innerHTML = factTwo;
+
     })
-  },
 
-  methods:{
-
-    // var config = {
-    //   headers: {
-    //     'key': 'https://api.api-ninjas.com/v1/facts?limit=2'
-    //   }
-    // }
-    // getFacts() {
-    //  axios.get(`https://api.api-ninjas.com/v1/facts?limit=2`, config).then(response => {
-    //     console.log (response);
-    //   };
-    }
-
-
+    return {
+      factOne,
+      factTwo
+   }
   }
 </script>
