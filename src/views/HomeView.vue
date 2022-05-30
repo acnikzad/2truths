@@ -1,12 +1,9 @@
 <template>
   <body>
-    <div class="home">
-      <ul>
-      <li><button><span id="factOne"></span></button></li>
-      <li><button><span id="factTwo"></span></button></li>
-      <li><button id="lie"><span id="lie"></span></button></li>
-      </ul>
-      <button v-on:click="getFacts()">Click Me</button>
+    <div class="container">      
+      <h2><span id="factOne"></span></h2>
+      <h2><span id="factTwo"></span></h2>
+      <h2><span id="lie"></span></h2>
     </div>
   </body>
 </template>
@@ -48,11 +45,16 @@ export default {
         "Thomas Edison was offered the presidency of Palestine in 1937, but he declined",
         "The New York Public Library, located in New York City, is the largest library in the world",
         "Men smile more than women do",
+        "A hippopotamus can live up to the age of eighty, or in some cases even more",
+        "The blood cell count of an average American teenager compared to thirty years ago is down twenty percent",
+        "Only male fleas bite humans. Female fleas live on natural liquids from plants and other resources",
+        "",
+
        ]
 
-       let lie = fakeFacts[x]
        x = Math.floor(Math.random()*fakeFacts.length)
        console.log(x)
+       let lie = fakeFacts[x]
 
       factOne = factOne.substring(9, factOne.length-2);
       factTwo = factTwo.substring(9, factTwo.length-2);
