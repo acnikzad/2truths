@@ -1,4 +1,6 @@
 body {
+  background-color: #2b4450;
+  text: #dfebed;
 
 }
 
@@ -11,17 +13,29 @@ body {
   margin-left: 25%;
 }
 
+#shuffle > div {
+    float: center;
+    text-align: center;
+    background-color: steelblue;
+    color: #fff;
+    border-radius: 15px;
+    margin: 3px;
+  }
+
 h2 {
   font-size:  2.3rem;
-  color: h6h6h6;
+  color: #dfebed;
   position: relative;
+  border:  ;
+  border-radius: 15px;
+  padding: 10px;
 }
 
 h2::after {
   position:  absolute;
   width:  0%;
   height:  4px;
-  background-color:  #16A56B;
+  background-color: #16A56B;
   left:  50%;
   bottom: -10px;
   transition:  all 0.3s ease-in-out;
@@ -29,6 +43,7 @@ h2::after {
 
 h2:hover {
   cursor: pointer;
+  background-color: #f78536;
 }
 
 h2:hover::afer {
@@ -36,3 +51,19 @@ h2:hover::afer {
   width: 100%;
   left: 0/;
 }
+
+/*.first-color { 
+  background: #f78536; 
+} highlight
+  
+.second-color { 
+  background: #dfebed; 
+} text
+
+.third-color { 
+  background: #497285; 
+} divs
+
+.fourth-color { 
+  background: #2b4450; 
+} background */

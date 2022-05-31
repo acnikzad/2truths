@@ -1,9 +1,11 @@
 <template>
   <body>
-    <div class="container">      
-      <h2><span id="factOne"></span></h2>
-      <h2><span id="factTwo"></span></h2>
-      <h2><span id="lie"></span></h2>
+    <div class="container">
+      <div id="shuffle">      
+        <div><h2><span id="factOne"></span></h2></div>
+        <div><h2><span id="factTwo"></span></h2></div>
+        <div><h2><span id="lie"></span></h2></div>
+      </div>
     </div>
   </body>
 </template>
@@ -13,16 +15,9 @@ import axios from 'axios';
 
 export default {
 
-  data() {
-    return {
-      factOne: "",
-      factTwo: "",
-
-    }
-  },
-
   mounted() {
 
+    // shuffle();
     getFacts();
 
     },
@@ -48,8 +43,10 @@ export default {
         "A hippopotamus can live up to the age of eighty, or in some cases even more",
         "The blood cell count of an average American teenager compared to thirty years ago is down twenty percent",
         "Only male fleas bite humans. Female fleas live on natural liquids from plants and other resources",
-        "",
-
+        "In a study conducted regarding toilet paper usage, Americans are said to use the most toilet paper per trip to the bathroom, which was seven sheets of toilet paper per trip",
+        "The body of a cow has approximately 22,000 miles of capillaries",
+        "The humpback whale can produce thirty million eggs at once",
+        "No piece of paper can be folded in half more than 6 times",
        ]
 
        x = Math.floor(Math.random()*fakeFacts.length)
@@ -70,5 +67,13 @@ export default {
       factOne,
       factTwo
    }
-  }
+  };
+
+  // function shuffle() {
+  //     var parent = getElementById("shuffle");
+  //     var divs = parent.children();
+  //     while (divs.length) {
+  //       parent.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+  //     }
+  // };
 </script>
